@@ -1,0 +1,52 @@
+order = [
+  "intake",
+  "question_refinement",
+  "literature_map",
+  "gap_memo",
+  "research_proposal",
+  "review_decision",
+  "paper_draft",
+  "empirical_feasibility",
+]
+
+[stages.intake]
+file = "01_intake.md"
+role = "orchestrator"
+requires = []
+
+[stages.question_refinement]
+file = "02_question_refinement.md"
+role = "question-agent"
+requires = ["01_intake.md"]
+
+[stages.literature_map]
+file = "03_literature_map.md"
+role = "literature-agent"
+requires = ["02_question_refinement.md"]
+
+[stages.gap_memo]
+file = "04_gap_memo.md"
+role = "synthesis-agent"
+requires = ["02_question_refinement.md", "03_literature_map.md"]
+
+[stages.research_proposal]
+file = "05_research_proposal.md"
+role = "proposal-agent"
+requires = ["03_literature_map.md", "04_gap_memo.md"]
+
+[stages.review_decision]
+file = "06_review_decision.md"
+role = "review-agent"
+requires = ["05_research_proposal.md"]
+
+[stages.paper_draft]
+file = "07_paper_draft.md"
+role = "writing-agent"
+requires = ["05_research_proposal.md", "06_review_decision.md"]
+approval_gate = "06_review_decision.md"
+
+[stages.empirical_feasibility]
+file = "08_empirical_feasibility.md"
+role = "empirical-agent"
+requires = ["05_research_proposal.md"]
+

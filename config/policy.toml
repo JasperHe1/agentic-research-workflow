@@ -1,0 +1,13 @@
+[research]
+proposal_before_paper = true
+human_review_required = true
+preserve_uncertainty = true
+allow_fabricated_citations = false
+
+[agents]
+orchestrator = "Coordinates stage files, dependencies, and final integration"
+question_agent = "Refines the research puzzle and identifies rival explanations"
+literature_agent = "Maps literature and records source gaps"
+review_agent = "Applies a skeptical contribution and feasibility review"
+empirical_agent = "Separates data availability from identification credibility"
+
